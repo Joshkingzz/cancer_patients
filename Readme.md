@@ -4,22 +4,21 @@
 
 This project focuses on analyzing a normalized database of cancer patient records using SQL. It explores patient demographics, diagnosis stages, treatment outcomes, survival rates, and risk factors.
 
-📊 All reporting and visuals for this project were built and published on my website:
-🔗 [https://www.datascienceportfol.io/joshkvngs](https://www.datascienceportfol.io/joshkvngs)
+📊 All reporting and visuals for this project were built at 🔗 [View Full Report](https://github.com/Joshkingzz/cancer_patients/blob/main/Report.md)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-patients/
+📁 patients/
 │
-├── data/                 → Contains the normalized dataset
-├── sql/                  → Contains all SQL queries for analysis
-├── powerbi/              → Power BI report file (.pbix) for visualization
-├── python/              → contains codes for data cleaning and wrangling
-├── Report/              → contains descriptive analysis and answers to questions asked by client
-└── README.md             → Project overview and explanation
+├── 📁 data/                 → Contains the normalized dataset
+├── 📁 sql/                  → Contains all SQL queries for analysis
+├── 📁 powerbi/              → Power BI report file (.pbix) for visualization
+├── 📁 python/              → contains codes for data cleaning and wrangling
+├── 📁 Report/              → contains descriptive analysis and answers to questions asked by client
+└── 📁 Readme.md             → Project overview and explanation
 ```
 
 ---
@@ -75,7 +74,7 @@ patients/
 * **Power BI** (for dashboard creation`)
 * **Python** (for data cleaning and wrangling)
 * **Figma** (for report template creation)
-* **Chatgpt** (for research)
+* **Chatgpt** (for domain research)
 
 ---
 
