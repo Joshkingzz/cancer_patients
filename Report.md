@@ -78,7 +78,7 @@ order by age_group
 
 ![Image](https://github.com/user-attachments/assets/299ebf5e-1cad-42b3-8627-c77b1e699d40)
 
-* Most patients fall within the **41–70** age range.
+* Most patients fall within the **41–70** age range with age range of 51 - 60 significantly standing out as the age range with highest number of cancer cases
 * Insight: Cancer incidence increases with age, particularly after 40.
 
 ### 2. Gender Distribution Across Stages
@@ -130,9 +130,10 @@ inner join cancer_stage B on A.cancer_stageID = b.cancer_stageID
 	group by b.cancer_stage
 	order by b.cancer_stage, Number desc
 ```
+![Image](https://github.com/user-attachments/assets/5f311d2b-2b76-4359-9ac9-2d1d31643e0c)
 
-* **Stage II and III** dominate, with 40% of cases.
-* Late-stage (Stage III/IV) diagnosis remains high in many countries.
+* Despite almost having an even distribution among stages, **Stage III and IV** have a higher percentage.
+* Late-stage (Stage III/IV) diagnosis remains prevalent, hence the need for cancer awareness and regular check ups to mitigate late stage disgnosis.
 
 ### 2. Diagnosis Trend Over Time
 ```
@@ -142,8 +143,12 @@ inner join diagnosis_date d on a.diagnosis_dateID = d.diagnosis_dateID
 	group by year(diagnosis_date), month (diagnosis_date)
 	order by year(diagnosis_date), month (diagnosis_date)
 ```
-* Diagnoses have grown steadily over time, peaking in recent years.
-* Suggests increased awareness or improved diagnostics.
+
+![Image](https://github.com/user-attachments/assets/81f0df3b-bb5e-4744-901c-c4ab16e2cf35)
+![Image](https://github.com/user-attachments/assets/0c7d5255-e70d-4bd8-b627-aa1d9c4bdd5c)
+![Image](https://github.com/user-attachments/assets/7d3e5b19-f105-403b-94e8-cb2d4f611a54)
+
+*Cancer diagnoses have remained relatively steady over the years, with the lowest numbers typically recorded in the first quarter, followed by a gradual rise in the second quarter. A notable spike occurs in the third quarter, especially in July, which, along with January, consistently records the highest number of diagnoses. In contrast, February shows a significant drop, after which the monthly figures fluctuate moderately throughout the rest of the year.
 
 ### 3. Average Diagnosis Age by Stage
 ```
@@ -155,9 +160,9 @@ with age_frequency as (
 						)
 select cancer_stage, age as mode_age from age_frequency where row_num = 1
 ```
+![Image](https://github.com/user-attachments/assets/06192ffd-7cb5-4d54-95e5-030e0a31fb98)
 
-* **Mode age** of diagnosis is between 60–65 for most stages.
-* Stage I diagnoses occur slightly earlier than advanced stages.
+* Since most cancer diagnoses occur predominantly within the 51 to 60 age group, it’s no surprise that the average age at diagnosis falls between 55 and 60. This trend highlights the importance of early screening and proactive health monitoring as individuals approach their 50s, emphasizing the need to detect cancer in its early stages for better outcomes.
 
 ### 4. Countries with Higher Late-Stage Diagnosis
 ```
@@ -168,9 +173,9 @@ from fact A
 	group by country
 	order by Stage_III_and_IV_diagnosis desc
 ```
+![Image](https://github.com/user-attachments/assets/950976f8-32d4-41cf-b6b3-4b6cb25c2159)
 
-* Certain countries show a disproportionate number of **Stage III/IV** cases.
-* Could indicate late presentation or limited screening access.
+* Countries with a higher incidence of late-stage cancer diagnoses include Croatia, Greece, Malta, France, the Netherlands, and Italy. This pattern may point to potential gaps in early detection, screening programs, or healthcare access within these regions, emphasizing the need for improved awareness and diagnostic efforts.
 
 ---
 
