@@ -58,12 +58,11 @@ order by a.age_group
 
 --B) Diagnosis & Staging
 --1) What is the distribution of cancer stages at diagnosis?
-select b.cancer_stage, d.diagnosis_date, count(*) as Number, round((count(*)/890000.0)*100, 4) as percentage_distribution
+select b.cancer_stage, count(*) as Number, round((count(*)/890000.0)*100, 4) as percentage_distribution
 from fact A
 inner join cancer_stage B on A.cancer_stageID = b.cancer_stageID
-inner join diagnosis_date d on a.diagnosis_dateID = d.diagnosis_dateID
-	group by b.cancer_stage, d.diagnosis_date
-	order by b.cancer_stage
+	group by b.cancer_stage
+	order by b.cancer_stage, Number desc
 
 --2)What is the trend of new diagnoses over time? 
 select year(d.diagnosis_date) as year, month (d.diagnosis_date) as month, count (*) as new_diagnosis
@@ -195,7 +194,7 @@ select b.country, ((count(case when survived in (1) then 1 end)/890000.0)*100) a
 	group by b.country
 	order by survival_rate desc
 
---3) Does the type of treatment vary across countries?
+--3) Does the type of treatment vary acrossÂ countries?
 select distinct b.country, c.treatment_type, count(treatment_type) as count,  row_number() over ( partition by b.country order by count(*) desc
         ) as rank
 	from fact a
