@@ -124,12 +124,11 @@ order by a.age_group
 
 ### 1. Stage Distribution at Diagnosis
 ```
-select b.cancer_stage, d.diagnosis_date, count(*) as Number, round((count(*)/890000.0)*100, 4) as percentage_distribution
+select b.cancer_stage, count(*) as Number, round((count(*)/890000.0)*100, 4) as percentage_distribution
 from fact A
 inner join cancer_stage B on A.cancer_stageID = b.cancer_stageID
-inner join diagnosis_date d on a.diagnosis_dateID = d.diagnosis_dateID
-	group by b.cancer_stage, d.diagnosis_date
-	order by b.cancer_stage
+	group by b.cancer_stage
+	order by b.cancer_stage, Number desc
 ```
 
 * **Stage II and III** dominate, with 40% of cases.
