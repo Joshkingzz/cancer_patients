@@ -5,6 +5,11 @@
 This project analyzes a large dataset of 890,000 cancer patients to uncover patterns in diagnosis, demographics, treatment types, and survival outcomes. It aims to help healthcare professionals and researchers identify high-risk groups, treatment performance, and demographic insights to improve patient care and resource allocation.
 
 > **Tools Used**: SQL Server for analysis, Power BI for visualization.
+![Image](https://github.com/user-attachments/assets/aac56d1b-06f6-48db-a6d7-6ee70789193e)
+
+![Image](https://github.com/user-attachments/assets/d7d0cc6c-a0e8-4892-a077-e665b16a8ac1)
+
+![Image](https://github.com/user-attachments/assets/4c25db58-8270-4dbc-8ecb-3ccb4bfe3348)
 
 
 ---
