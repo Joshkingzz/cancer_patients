@@ -115,12 +115,12 @@ from ( select
 		 ) 
 as subquery
 
---4) What is the average cholesterol level across different age groups and stages? 
-select b.cancer_stage, a.Age_group, avg(cholesterol_level) as Average_cholestrol_level 
+--4) What is the average cholesterol level across different age groups? 
+select a.Age_group, avg(cholesterol_level) as Average_cholestrol_level 
 from Fact a
-inner join Cancer_stage b on a.cancer_stageID = b.cancer_stageID
-	group by  b.cancer_stage, a.Age_group 
-	order by b.cancer_stage
+
+	group by a.Age_group 
+	order by a.Age_group
 
 --5) What is the average cholesterol level across different stages?
 select cancer_stage, (Total_cholestrol_level/Number) as Average_cholestrol_level 
