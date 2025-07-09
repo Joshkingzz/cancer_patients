@@ -78,8 +78,8 @@ order by age_group
 
 ![Image](https://github.com/user-attachments/assets/299ebf5e-1cad-42b3-8627-c77b1e699d40)
 
-* Most patients fall within the **51–70** age range.
-* Insight: Cancer incidence increases with age, particularly after 50.
+* Most patients fall within the **41–70** age range.
+* Insight: Cancer incidence increases with age, particularly after 40.
 
 ### 2. Gender Distribution Across Stages
 ```
@@ -92,8 +92,7 @@ order by b.cancer_stage
 ```
 ![Image](https://github.com/user-attachments/assets/6cdb494d-6550-4633-9ddf-bbe378a5de9c)
 
-* Gender representation varies slightly by stage, but both genders are affected similarly.
-* Slight male dominance in advanced stages in some regions.
+* Gender representation varies slightly by stage, but both genders are affected similarly although it is slightly dominant in the male gender across all stages with stage III being an exception
 
 ### 3. Countries with Highest Cases
 ```
@@ -104,7 +103,7 @@ order by Number_of_cases desc
 ```
 ![Image](https://github.com/user-attachments/assets/6c4f29ea-2895-4411-8b50-0be0043b0d56)
 
-* **Top countries**: United States, India, China, and Brazil lead in case numbers.
+* **Top countries**: Malta, Ireland, Portugal, and France lead in case numbers.
 * Could reflect both population size and reporting practices.
 
 ### 4. Average BMI by Gender and Age Group
@@ -116,7 +115,7 @@ order by a.age_group
 ```
 ![Image](https://github.com/user-attachments/assets/dd40c8e2-0029-4a9d-b5e3-2e431589e962)
 
-* BMI is higher in older groups and slightly higher in females.
+* BMI is higher in older groups and slightly higher in males with the highest BMI being a male preschooler.
 * Monitoring weight/BMI could inform preventive strategies.
 
 ---
