@@ -18,6 +18,7 @@ patients/
 ├── sql/                  → Contains all SQL queries for analysis
 ├── powerbi/              → Power BI report file (.pbix) for visualization
 ├── python/              → contains codes for data cleaning and wrangling
+├── Report/              → contains descriptive analysis and answers to questions asked by client
 └── README.md             → Project overview and explanation
 ```
 
