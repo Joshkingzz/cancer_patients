@@ -191,8 +191,10 @@ from fact A
 	order by cancer_stage, smoking_status
 ```
 
-* Strong correlation between **smoking** and late-stage cancers.
-* **Current and former smokers** make up a significant share of Stage III and IV diagnoses.
+![Image](https://github.com/user-attachments/assets/4ffd3e39-d7d8-4e88-bab8-7f55116caa08)
+
+* Passive Smokers consistently have high diagnosis counts across all stages, often ranking highest or second-highest. This could imply that secondhand smoke exposure is a critical risk factor. The differences between categories are not drastic, but there is a gradual shift in distribution, especially in the later stages, where Never and Passive Smokers have slightly higher numbers. Current Smokers show a notable decrease in Stage IV, which may suggest earlier mortality, under-diagnosis, or healthcare avoidance in this group.
+
 
 ### 2. Family History
 ```
@@ -201,8 +203,9 @@ from fact a
 inner join family_history f on a.family_historyID = f.family_historyID where family_history in (1)
 
 ```
+![Image](https://github.com/user-attachments/assets/c85bc424-4c17-43d7-8f5c-ccda85171c87)
 
-* Over **35% of patients** reported a family history of cancer.
+* **444819** patients out of 890000 reportedly have a family history of cancer.
 * Genetic screening and family-based interventions are crucial.
 
 ### 3. Comorbidity Prevalence
@@ -219,19 +222,20 @@ from ( select
 		 ) 
 as subquery
 ```
+![Image](https://github.com/user-attachments/assets/a73abb70-2cb1-4f07-9a45-484c8ac3608b)
 
-* **Hypertension**: \~28%
-* **Asthma**: \~10%
-* **Cirrhosis**: \~4%
-* Insight: Comorbid conditions may affect treatment tolerance and outcomes.
+* **Hypertension**: \~75%
+* **Asthma**: \~47%
+* **Cirrhosis**: \~23%
+* Insight: This data highlights a strong prevalence of comorbid conditions in cancer patients, especially hypertension and asthma. These comorbidities may not only contribute to cancer risk but also complicate diagnosis, treatment, and recovery.  Hypertension is the most prevalent, followed by asthma, while cirrhosis, though less common, still affects a notable portion of the population. These conditions are highly relevant in the context of cancer, as they may influence both risk and treatment outcomes.
 
 ### 4. Cholesterol Levels
 ```
-select b.cancer_stage, a.Age_group, avg(cholesterol_level) as Average_cholestrol_level 
+select a.Age_group, avg(cholesterol_level) as Average_cholestrol_level 
 from Fact a
-inner join Cancer_stage b on a.cancer_stageID = b.cancer_stageID
-	group by  b.cancer_stage, a.Age_group 
-	order by b.cancer_stage
+
+	group by a.Age_group 
+	order by a.Age_group
 ```
 ```
 select cancer_stage, (Total_cholestrol_level/Number) as Average_cholestrol_level 
