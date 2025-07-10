@@ -377,9 +377,10 @@ select distinct b.country, c.treatment_type, count(treatment_type) as count,  ro
 ```
 select ((count(case when survived in (1) then 1 end)/890000.0)*100) as survival_rate, 100 - ((count(case when survived in (1) then 1 end)/890000.0)*100) as Death_rate  from Fact
 ```
+![Image](https://github.com/user-attachments/assets/71b39dbc-31e4-4d28-8050-e12dd5f3fe72)
 
-* \~**72.4%** survived, while **27.6%** did not.
-* Strong survival rates, but late detection still impacts outcomes.
+* \~**22.02%** survived, while **77.97%** did not.
+* Poor survival rates
 
 ### 2. Survival by Cancer Stage
 ```
@@ -389,10 +390,9 @@ select b.cancer_stage, ((count(case when a.survived in (1) then 1 end)/890000.0)
 	group by b.cancer_stage
 	order by b.cancer_stage asc
 ```
+![Image](https://github.com/user-attachments/assets/55ce1702-24f8-429d-8788-0caad6996936)
 
-* Stage I: \~95%
-* Stage IV: <30%
-* Strong indication of the **critical importance of early diagnosis**.
+* All four stages show very low survival rates, with values just above 5%, Surprisingly, Stage IV has a slightly higher survival rate than Stage I, which is not typical in cancer prognosis and Normally, early stages (like Stage I) are expected to have much higher survival rates than later stages (like Stage IV).
 
 ### 3. Survival by Treatment Type
 ```
@@ -402,9 +402,9 @@ from fact a
 	group by b.treatment_type
 	order by survival_rate desc
 ```
+![Image](https://github.com/user-attachments/assets/9d66ba90-3fad-43f8-8a42-36bab2d11db3)
 
-* **Surgery + Radiation** showed highest survival.
-* Patients receiving **palliative or single-line chemo** had lower outcomes.
+* **Surgery** showed highest survival.
 
 ### 4. Survival by Risk Factors
 ```
@@ -414,6 +414,8 @@ from fact a
 	group by smoking_status
 	order by survival_rate desc
 ```
+![Image](https://github.com/user-attachments/assets/e64e26e4-a96f-4773-a8ed-2e47e26310dd)
+
 ```
 select b.family_history, ((count(case when survived in (1) then 1 end)/890000.0)*100) as survival_rate 
 from fact a
@@ -421,42 +423,45 @@ from fact a
 	group by b.family_history
 	order by survival_rate desc
 ```
+![Image](https://github.com/user-attachments/assets/861691a8-de6b-4927-a209-05fb5cd1fc75)
+
 ```
 
 select hypertension, ((count(case when survived in (1) then 1 end)/890000.0)*100) as survival_rate from fact
 	group by hypertension
 	order by survival_rate desc
 ```
+![Image](https://github.com/user-attachments/assets/1111d12d-cacd-4f64-bafc-592486bb6210)
+
 ```
 
 select asthma, ((count(case when survived in (1) then 1 end)/890000.0)*100) as survival_rate from fact
 	group by asthma
 	order by survival_rate desc
 ```
+![Image](https://github.com/user-attachments/assets/fdcccf45-771a-42a9-b3de-64f1d25650a2)
+
 ```
 
 select cirrhosis, ((count(case when survived in (1) then 1 end)/890000.0)*100) as survival_rate from fact
 	group by cirrhosis
 	order by survival_rate desc
 ```
+
+![Image](https://github.com/user-attachments/assets/c41c78a6-9150-4414-a3a6-fa1b03fe63e6)
 ```
 
 select other_cancer, ((count(case when survived in (1) then 1 end)/890000.0)*100) as survival_rate from fact
 	group by other_cancer
 	order by survival_rate desc
 ```
-```
+![Image](https://github.com/user-attachments/assets/09b066f0-220f-4acb-9023-af831c2372ab)
 
-select asthma, ((count(case when survived in (1) then 1 end)/890000.0)*100) as survival_rate from fact
-	group by asthma
-	order by survival_rate desc
-```
 
-* Smoking: Current smokers had the **lowest survival rate (\~50%)**
-* Family History: Slightly better survival — likely due to earlier screenings
-* Hypertension, Asthma, Cirrhosis, and Other Cancer:
-
-  * **All show reduced survival rates** compared to patients without comorbidities
+* Survival rates among individuals with varying smoking histories show modest variation, ranging from 5.48% to 5.53%. Interestingly, those who never smoked have the highest survival rate (5.53%), followed closely by passive smokers. In contrast, former smokers exhibit the lowest survival rate (5.48%), which may reflect long-term damage or underlying health issues linked to past smoking behavior.
+* Additionally, individuals with a family history of cancer demonstrate slightly higher survival rates. This may be due to increased awareness, earlier screening, or proactive medical behavior among those with hereditary risk.
+* A particularly notable finding is that patients with hypertension tend to have higher survival rates than those without. While this might seem unexpected, it could reflect more frequent medical monitoring and earlier cancer detection among hypertensive patients.
+* Moreover, survival outcomes are generally better for individuals without asthma, cirrhosis, or a history of other cancers. This suggests that coexisting health conditions can significantly impact prognosis, with comorbidity-free patients having a higher likelihood of surviving cancer.
 
 ---
 
