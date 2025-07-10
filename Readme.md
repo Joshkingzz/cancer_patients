@@ -19,8 +19,9 @@ This project focuses on analyzing a normalized database of cancer patient record
 ├── 📁 sql/                  → Contains all SQL queries for analysis
 ├── 📁 powerbi/              → Power BI report file (.pbix) for visualization
 ├── 📁 python/              → contains codes for data cleaning and wrangling
-├── 📁 Report/              → contains descriptive analysis and answers to questions asked by client
-└── 📁 Readme.md             → Project overview and explanation
+├── 📁 Images/              → contains pictures and screenshots of the project
+├──  Report.md              → contains descriptive analysis and answers to questions asked by client
+└──  Readme.md             → Project overview and explanation
 ```
 
 ---
