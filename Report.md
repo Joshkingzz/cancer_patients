@@ -336,8 +336,7 @@ from fact a
 	group by b.country
 	order by number_of_patients desc
 ```
-* High numbers in **developed countries** due to better reporting and diagnostics.
-* Emerging economies also show increasing data.
+![Image](https://github.com/user-attachments/assets/6bb81284-eadb-4d18-8cee-11429345acdd)
 
 ### 2. Survival Rate per Country
 ```
@@ -347,8 +346,9 @@ select b.country, ((count(case when survived in (1) then 1 end)/890000.0)*100) a
 	group by b.country
 	order by survival_rate desc
 ```
+![Image](https://github.com/user-attachments/assets/8c87c085-1d33-4c4c-b5f9-fcc338880d44)
 
-* Survival varies from **\~65% to 85%** by country.
+* Survival varies from **\0.80% to 0.83%** by country.
 * Indicates disparities in treatment access, quality of care, and early detection.
 
 ### 3. Treatment Variation Across Countries
@@ -360,11 +360,15 @@ select distinct b.country, c.treatment_type, count(treatment_type) as count,  ro
 		inner join Treatment_type c on a.treatment_typeID = c.treatment_typeID
 	group by b.country, c.treatment_type
 	order by b.country asc
-``` 
+```
 
-* Some countries favor **non-invasive treatments**, others combine **chemo + radiation**.
-* May reflect national treatment guidelines or availability.
 
+![Image](https://github.com/user-attachments/assets/40d5288f-2144-4f6c-ad31-5e474cc76a96)
+![Image](https://github.com/user-attachments/assets/96d8bb35-ad7b-4a25-88cc-1244b29ecc88)
+![Image](https://github.com/user-attachments/assets/bbed9f32-32d3-4a15-8eaa-47e5188f7136)
+
+* Yes, treatment type varies significantly by country, The data shows that different countries prioritize different treatment types for cancer, suggesting that medical practices, healthcare infrastructure, access to therapies, and national treatment guidelines influence cancer management strategies.
+  
 ---
 
 ## 💓 F. Outcomes & Survival
