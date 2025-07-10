@@ -4,7 +4,9 @@
 
 This project focuses on analyzing a normalized database of cancer patient records using SQL. It explores patient demographics, diagnosis stages, treatment outcomes, survival rates, and risk factors.
 
-📊 All reporting and visuals for this project were built at 🔗 [View Full Report](https://github.com/Joshkingzz/cancer_patients/blob/main/Report.md)
+📊 All reporting and visuals for this project were built at 🔗 [View Full Report](https://github.com/Joshkingzz/cancer_patients/blob/main/Report.md) or 🔗 [Report Visualization](https://tinyurl.com/ye22jhp3)
+
+
 
 ---
 
