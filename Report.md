@@ -104,7 +104,7 @@ order by Number_of_cases desc
 ![Image](https://github.com/user-attachments/assets/6c4f29ea-2895-4411-8b50-0be0043b0d56)
 
 * **Top countries**: Malta, Ireland, Portugal, and France lead in case numbers.
-* Could reflect both population size and reporting practices.
+* Insight: Could reflect both population size and reporting practices.
 
 ### 4. Average BMI by Gender and Age Group
 ```
@@ -133,7 +133,7 @@ inner join cancer_stage B on A.cancer_stageID = b.cancer_stageID
 ![Image](https://github.com/user-attachments/assets/5f311d2b-2b76-4359-9ac9-2d1d31643e0c)
 
 * Despite almost having an even distribution among stages, **Stage III and IV** have a higher percentage.
-* Late-stage (Stage III/IV) diagnosis remains prevalent, hence the need for cancer awareness and regular check ups to mitigate late stage disgnosis.
+* Insight: Late-stage (Stage III/IV) diagnosis remains prevalent, hence the need for cancer awareness and regular check ups to mitigate late stage disgnosis.
 
 ### 2. Diagnosis Trend Over Time
 ```
@@ -162,7 +162,7 @@ select cancer_stage, age as mode_age from age_frequency where row_num = 1
 ```
 ![Image](https://github.com/user-attachments/assets/06192ffd-7cb5-4d54-95e5-030e0a31fb98)
 
-* Since most cancer diagnoses occur predominantly within the 51 to 60 age group, it’s no surprise that the average age at diagnosis falls between 55 and 60. This trend highlights the importance of early screening and proactive health monitoring as individuals approach their 50s, emphasizing the need to detect cancer in its early stages for better outcomes.
+* Insight: Since most cancer diagnoses occur predominantly within the 51 to 60 age group, it’s no surprise that the average age at diagnosis falls between 55 and 60. This trend highlights the importance of early screening and proactive health monitoring as individuals approach their 50s, emphasizing the need to detect cancer in its early stages for better outcomes.
 
 ### 4. Countries with Higher Late-Stage Diagnosis
 ```
@@ -206,7 +206,7 @@ inner join family_history f on a.family_historyID = f.family_historyID where fam
 ![Image](https://github.com/user-attachments/assets/c85bc424-4c17-43d7-8f5c-ccda85171c87)
 
 * **444819** patients out of 890000 reportedly have a family history of cancer.
-* Genetic screening and family-based interventions are crucial.
+* Insight: Genetic screening and family-based interventions are crucial.
 
 ### 3. Comorbidity Prevalence
 ```
@@ -237,6 +237,9 @@ from Fact a
 	group by a.Age_group 
 	order by a.Age_group
 ```
+![Image](https://github.com/user-attachments/assets/ddb0c9ed-7825-4eae-9933-b9b9f0674439)
+
+
 ```
 select cancer_stage, (Total_cholestrol_level/Number) as Average_cholestrol_level 
 
@@ -248,8 +251,11 @@ from ( select b.cancer_stage, sum(a.cholesterol_level) as Total_cholestrol_level
 		
 order by cancer_stage asc
 ```
+![Image](https://github.com/user-attachments/assets/3d07a0c2-ee76-4f32-ad4d-6918886fee26)
 
-* Cholesterol increases with **age** and is higher in **Stage I–II**, suggesting better health at earlier stages.
+* Cholesterol levels remain constant (233 mg/dL) across all cancer stages, suggesting no link between cancer progression and cholesterol in this dataset.
+* Across age groups, cholesterol is stable from ages 11 to 100, with slight variations: Lowest in ages 0–10 (228 mg/dL) & Highest in those aged 101+ (248 mg/dL).
+* Insight : These patterns indicate that cholesterol levels are not a strong indicator of cancer stage or age, except at age extremes.
 
 ---
 
@@ -263,9 +269,12 @@ from Fact a
 	group by b.treatment_type
 	order by Number asc
 ```
+![Image](https://github.com/user-attachments/assets/f68cbad9-5e7b-4ed1-a386-607c40922051)
 
-* **Surgery and chemotherapy** are most common, followed by **combined treatment** options.
-* Combined therapies are more frequent in advanced stages.
+* The distribution of cancer treatment types is almost evenly spread among the four categories. **Chemotherapy** and **Surgery** are the most common treatments, each accounting for about 25.09% of patients, Combined treatments (likely multiple modalities) follow closely at 25.01%, Radiation therapy is slightly less common but still significant at 24.82%.
+
+* Insight: The marginal differences suggest that treatment choice is likely influenced by individual patient profiles, cancer type, and stage, rather than a dominant standard approach.
+
 
 ### 2. Average Treatment Duration by Stage
 ```
@@ -275,8 +284,9 @@ from fact a
 	group by b.cancer_stage
 	order by b.cancer_stage
 ```
-* **Stage IV** patients undergo longer treatments (avg. >250 days).
-* Duration is shorter in **early stages** (\~100–150 days).
+![Image](https://github.com/user-attachments/assets/b71e0cec-3a47-4a30-b25e-6cf5bdb52f5a)
+
+* **Stage I** patients have the longest average treatment duration **(512 days)**, **Stage IV** patients have the shortest average treatment duration **(403 days)**. There is an inverse relationship between cancer stage and treatment duration, as the stage increases, the average duration of treatment decreases, reflecting differences in treatment goals and intensity.
 
 ### 3. Most Common Treatment by Stage
 ```
@@ -288,8 +298,10 @@ from fact a
 	group by b.cancer_stage, c.treatment_type
 	order by b.cancer_stage asc
 ```
-* Stage I: Surgery dominates
-* Stage III/IV: Chemotherapy and combined treatments are more common.
+![Image](https://github.com/user-attachments/assets/ef8753d7-2fe8-4150-b163-fce9043ceeab)
+
+* **Surgery** is the most common treatment in early stages (Stage I and II), In Stage III, treatment shifts towards **Combined therapy and Chemotherapy**. Stage IV is dominated by **Chemotherapy**, reflecting its role in managing advanced cancers where curative surgery is often not viable.
+* Insight: As cancer progresses, treatment becomes more systemic (Chemotherapy/Combined), while Surgery is more common in early, localized stages.
 
 ### 4. Combined vs Single Treatment
 ```
@@ -307,9 +319,10 @@ from  (select
 
 as subquery
 ```
+![Image](https://github.com/user-attachments/assets/d3126bbb-ec1e-4bfb-86ab-901dcdcfba0e)
 
-* \~**36% received combined treatment**, showing personalized care in advanced cases.
-* Remaining **64% received a single treatment modality**.
+* \~**25% received combined treatment**, showing personalized care in advanced cases.
+* Remaining **75% received a single treatment modality**.
 
 ---
 
