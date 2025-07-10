@@ -78,6 +78,7 @@ This project focuses on analyzing a normalized database of cancer patient record
 * **Python** (for data cleaning and wrangling)
 * **Figma** (for report template creation)
 * **Chatgpt** (for domain research)
+* **Excel Power Query** (for data Normalisation)
 
 ---
 
